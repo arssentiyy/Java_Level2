@@ -4,8 +4,8 @@ public class ArrayException {
 
     public static void main(String[] args) {
 
-        String[][] arr = new String[][]{{"10", "30", "30", "50"}, {"10", "10", "10", "10"}, {"10", "10", "10", "10"}, {"10", "10", "10", "kkk"}};
-        //String[][] arr = new String[][]{{"10", "jjj", "30", "50"}, {"10", "10", "10", "10"}, {"10", "10", "10", "10"}, {"10", "10", "10", "10"}, {"10", "10", "10", "10"}};
+        //String[][] arr = new String[][]{{"10", "30", "30", "50"}, {"10", "10", "10", "10"}, {"10", "10", "10", "10"}, {"10", "10", "10", "kkk"}};
+        String[][] arr = new String[][]{{"10", "jjj", "30", "50"}, {"10", "10", "10", "10"}, {"10", "10", "10", "10"}, {"10", "10", "10", "10"}, {"10", "10", "10", "10"}};
         try {
             try {
                 int result = arr_method(arr);
@@ -16,7 +16,7 @@ public class ArrayException {
         }
         catch (MyArrayDataException e) {
             System.out.println("Возможно не числовое значение в массиве!");
-            System.out.println("Ошибка в ячейке: " + e.getI() + " " + e.getJ());
+            System.out.println("Ошибка в ячейке массива: " + e.getI() + " " + e.getJ());
         }
 
     }
