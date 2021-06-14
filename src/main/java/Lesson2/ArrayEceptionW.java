@@ -1,5 +1,6 @@
-public class ArrayException {
+package Lesson2;
 
+public class ArrayEceptionW {
     private static final int SIZE = 4;
 
     public static void main(String[] args) {
@@ -10,11 +11,11 @@ public class ArrayException {
             try {
                 int result = arr_method(arr);
                 System.out.println(result);
-            } catch (MyArraySizeException e) {
+            } catch (ArrayEceptionW.MyArraySizeException e) {
                 System.out.println("Размер массива не может быть больше "+ SIZE + " x " + SIZE);
             }
         }
-        catch (MyArrayDataException e) {
+        catch (ArrayEceptionW.MyArrayDataException e) {
             System.out.println("Возможно не числовое значение в массиве!");
             System.out.println("Ошибка в ячейке массива: " + e.getI() + " " + e.getJ());
         }
@@ -22,21 +23,21 @@ public class ArrayException {
     }
 
 
-    public static int arr_method(String[][] arr) throws MyArraySizeException, MyArrayDataException {
+    public static int arr_method(String[][] arr) throws ArrayEceptionW.MyArraySizeException, ArrayEceptionW.MyArrayDataException {
         int count = 0;
         if (arr.length != SIZE) {
-            throw new MyArraySizeException();
+            throw new ArrayEceptionW.MyArraySizeException();
         }
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].length != SIZE) {
-                throw new MyArraySizeException();
+                throw new ArrayEceptionW.MyArraySizeException();
             }
             for (int j = 0; j < arr[i].length; j++) {
                 try {
                     count = count + Integer.parseInt(arr[i][j]);
                 }
                 catch (NumberFormatException e) {
-                    throw new MyArrayDataException(i, j);
+                    throw new ArrayEceptionW.MyArrayDataException(i, j);
                 }
             }
 
@@ -49,8 +50,8 @@ public class ArrayException {
     }
 
     private static class MyArrayDataException extends Exception {
-       private final int i;
-       private final int j;
+        private final int i;
+        private final int j;
 
         public MyArrayDataException(int i, int j) {
             this.i = i;
